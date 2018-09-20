@@ -1,8 +1,12 @@
 const express = require('express');
 const swaggerTest = require('./swagger-test');
 
+const api = require('./routes');
+
 const port = 3000;
 let app = express();
+
+app.use('/api', api);
 
 app.get('/', (req, res) => {
 	res.json({desc: 'express swagger test'});
