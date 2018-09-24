@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const swaggerTest = require('./swagger-test');
 
 const api = require('./routes');
@@ -6,6 +7,7 @@ const api = require('./routes');
 const port = 3000;
 let app = express();
 
+app.use(bodyParser.json());
 app.use('/api', api);
 
 app.get('/', (req, res) => {
